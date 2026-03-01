@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elora College Digital Magazine</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
+  a { text-decoration:none; color:#ff6600; }
+  header { background:#222; color:white; text-align:center; padding:30px 10px; }
+  header img { max-width:150px; margin-bottom:10px; }
+  header h1 { margin:0; font-size:2.2em; }
+  header p { margin:5px 0 0 0; }
+  .small-text { font-size:0.7em; color:#ccc; }
+
+  nav { background:#444; display:flex; justify-content:center; flex-wrap:wrap; }
+  nav a { color:white; margin:10px 15px; font-weight:bold; padding:8px 12px; border-radius:4px; transition:0.3s; }
+  nav a:hover { background:#ff6600; color:white; }
+
+  main { max-width:1100px; margin:20px auto; padding:10px; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+  article { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  article h2 { margin-top:0; color:#222; }
+  article p { line-height:1.5; }
+  footer { background:#222; color:white; text-align:center; padding:20px 10px; margin-top:30px; }
+
+  /* Quiz Styles */
+  .quiz-container { background:#eee; padding:15px; border-radius:10px; }
+  .quiz-question { font-weight:bold; margin-bottom:10px; }
+  .quiz-option { display:block; margin:5px 0; cursor:pointer; padding:5px 8px; border-radius:4px; transition:0.2s; }
+  .quiz-option:hover { background:#ff6600; color:white; }
+
+  /* Gallery Styles */
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+  .gallery img { width:100%; border-radius:8px; cursor:pointer; transition:0.3s; }
+  .gallery img:hover { transform:scale(1.05); }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="Picture1 (2).png" alt="logo">
+  <h1>Elora-College Online Magazine</h1>
+</header>
+
+<nav>
+  <a href="news.html" target="_blank">School News</a>
+  <a href="books.html" target="_blank">Book Reviews</a>
+  <a href="tech.html" target="_blank">Tech & Gaming</a>
+  <a href="quiz.html" target="_blank">Quiz / Fun</a>
+  <a href="gallery.html" target="_blank">Gallery</a>
+  <a href="contact.html" target="_blank">Contact</a>
+  <a href="article.html" target="-blank">Article</a>
+</nav>
+
+
+<main>
+  <article id="news">
+    <h2>School News</h2>
+    <p>Latest events, achievements, and announcements from our school community.</p>
+  </article>
+
+  
+  </article>
+
+  <article id="books">
+    <h2>Book Reviews</h2>
+    <p>Reviews and recommendations from the library and student book club.</p>
+  </article>
+
+  <article id="tech">
+    <h2>Tech & Gaming</h2>
+    <p>Gaming updates, tech tips, and educational games recommended by our students.</p>
+  </article>
+
+
+  <!-- Quiz Section -->
+  <article id="quiz">
+    <h2>Quiz / Fun</h2>
+    <p>Questions From All over The Globe Recommended By our wonderful students</p>
+  </article>
+  <!-- Gallery Section -->
+  <article id="gallery">
+    <h2> Events Gallery</h2>
+    <p>Capturing our Students best moments</p>
+    <div class="gallery">
+  </article>
+
+  <article id="contact">
+    <h2>Contact Us</h2>
+    <p>Add Your Information For Admission </p>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; 2026 The Young Voice - JSS 3 Onyx</p>
+</footer>
+
+<script>
+  // Simple Quiz Logic
+  function checkAnswer(option) {
+    const feedback = document.getElementById('quiz-feedback');
+    if(option.textContent === "4") {
+      feedback.textContent = "✅ Correct!";
+      feedback.style.color = "green";
+    } else {
+      feedback.textContent = "❌ Try again!";
+      feedback.style.color = "red";
+    }
+  }
+</script>
+
+</body>
+</html>

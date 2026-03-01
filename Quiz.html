@@ -1,0 +1,175 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz & Fun</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #222;
+    }
+    .quiz-box {
+      background: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #ff6600;
+      color: white;
+    }
+    button:hover {
+      background: #e65c00;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #ff6600;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎉 School Quiz & Fun 🎉</h1>
+
+<div class="quiz-box">
+  <div id="question" class="question"></div>
+  <div id="answers"></div>
+</div>
+
+<a href="index.html">⬅ Back to Magazine</a>
+<script>
+const quiz = [
+  // ===== SCIENCE (1–30) =====
+  { q:"What gas do plants absorb?", a:["Oxygen","Carbon dioxide","Nitrogen","Hydrogen"], c:1 },
+  { q:"The human heart has how many chambers?", a:["2","3","4","5"], c:2 },
+  { q:"Which organ is used for breathing?", a:["Heart","Lungs","Kidney","Liver"], c:1 },
+  { q:"What planet is closest to the sun?", a:["Venus","Earth","Mercury","Mars"], c:2 },
+  { q:"Which vitamin comes from sunlight?", a:["A","B","C","D"], c:3 },
+  { q:"Water freezes at what temperature (°C)?", a:["0","50","100","-10"], c:0 },
+  { q:"Which blood cells fight disease?", a:["Red","White","Platelets","Plasma"], c:1 },
+  { q:"What gas do humans breathe in?", a:["Carbon dioxide","Oxygen","Nitrogen","Helium"], c:1 },
+  { q:"The brain is part of which system?", a:["Digestive","Respiratory","Nervous","Circulatory"], c:2 },
+  { q:"Which organ pumps blood?", a:["Lungs","Heart","Brain","Kidney"], c:1 },
+
+  { q:"What force pulls objects to Earth?", a:["Magnetism","Gravity","Friction","Energy"], c:1 },
+  { q:"Which sense organ is used for sight?", a:["Ear","Nose","Eye","Skin"], c:2 },
+  { q:"Plants make food by?", a:["Digestion","Respiration","Photosynthesis","Transpiration"], c:2 },
+  { q:"Which planet is known as the Red Planet?", a:["Jupiter","Mars","Venus","Saturn"], c:1 },
+  { q:"Which part of the plant makes food?", a:["Root","Stem","Leaf","Flower"], c:2 },
+
+  // ===== HISTORY (31–50) =====
+  { q:"Who was Nigeria’s first president?", a:["Obasanjo","Nnamdi Azikiwe","Buhari","Balewa"], c:1 },
+  { q:"Who discovered America?", a:["Marco Polo","Christopher Columbus","Vasco da Gama","Magellan"], c:1 },
+  { q:"The slave trade happened mainly across which ocean?", a:["Indian","Pacific","Atlantic","Arctic"], c:2 },
+  { q:"Who was the first man to walk on the moon?", a:["Buzz Aldrin","Neil Armstrong","Yuri Gagarin","John Glenn"], c:1 },
+  { q:"Ancient Egypt is famous for?", a:["Castles","Pyramids","Bridges","Roads"], c:1 },
+
+  { q:"Who was Nigeria’s first prime minister?", a:["Balewa","Azikiwe","Awolowo","Obasanjo"], c:0 },
+  { q:"World War II ended in which year?", a:["1940","1943","1945","1950"], c:2 },
+  { q:"Who was the first military head of state in Nigeria?", a:["Aguiyi-Ironsi","Buhari","Gowon","Obasanjo"], c:0 },
+  { q:"The Roman Empire was in?", a:["Africa","Europe","Asia","Australia"], c:1 },
+  { q:"Who led India to independence?", a:["Mandela","Gandhi","Nehru","King"], c:1 },
+
+  // ===== GEOGRAPHY (51–70) =====
+  { q:"What is the capital of Nigeria?", a:["Lagos","Abuja","Ibadan","Benin"], c:1 },
+  { q:"Which continent is Nigeria in?", a:["Asia","Europe","Africa","America"], c:2 },
+  { q:"The largest ocean is?", a:["Atlantic","Indian","Pacific","Arctic"], c:2 },
+  { q:"Which is the longest river in Africa?", a:["Niger","Benue","Nile","Congo"], c:2 },
+  { q:"Mount Everest is in?", a:["China","Nepal","India","Japan"], c:1 },
+
+  { q:"Which country has the largest population?", a:["USA","India","China","Russia"], c:2 },
+  { q:"The Sahara Desert is in?", a:["Asia","Africa","Europe","Australia"], c:1 },
+  { q:"Which line divides the Earth into two halves?", a:["Longitude","Latitude","Equator","Tropic"], c:2 },
+  { q:"Which direction does the sun rise?", a:["West","North","South","East"], c:3 },
+  { q:"Nigeria has how many geopolitical zones?", a:["4","5","6","7"], c:2 },
+
+  // ===== ICT / TECHNOLOGY (71–85) =====
+  { q:"What does ICT stand for?", a:["Information Computer Tech","Information Communication Technology","Internet Computer Tech","Internal Comms Tech"], c:1 },
+  { q:"Which device is used to type?", a:["Mouse","Keyboard","Monitor","Printer"], c:1 },
+  { q:"What does HTML stand for?", a:["HyperText Markup Language","HighText Machine Language","Hyper Tool Language","Home Tool Language"], c:0 },
+  { q:"Which is an input device?", a:["Monitor","Printer","Mouse","Speaker"], c:2 },
+  { q:"What is the brain of the computer?", a:["RAM","Hard disk","CPU","Monitor"], c:2 },
+
+  { q:"Which is used to browse the internet?", a:["Browser","Compiler","Scanner","Driver"], c:0 },
+  { q:"Which one is an operating system?", a:["Windows","Google","HTML","USB"], c:0 },
+  { q:"Which device produces sound?", a:["Monitor","Speaker","Mouse","Keyboard"], c:1 },
+  { q:"What does WWW stand for?", a:["World Web Wide","World Wide Web","Web World Wide","Wide World Web"], c:1 },
+  { q:"Which one stores data permanently?", a:["RAM","ROM","Cache","Register"], c:1 },
+
+  // ===== GENERAL KNOWLEDGE (86–110) =====
+  { q:"How many days are in a leap year?", a:["365","366","364","360"], c:1 },
+  { q:"How many months are in a year?", a:["10","11","12","13"], c:2 },
+  { q:"Which color is made from red and white?", a:["Pink","Purple","Orange","Brown"], c:0 },
+  { q:"Which animal is known as king of the jungle?", a:["Tiger","Elephant","Lion","Leopard"], c:2 },
+  { q:"How many continents are there?", a:["5","6","7","8"], c:2 },
+
+  { q:"Which day comes after Friday?", a:["Thursday","Saturday","Sunday","Monday"], c:1 },
+  { q:"How many hours are in a day?", a:["12","18","24","36"], c:2 },
+  { q:"What do bees produce?", a:["Milk","Wax","Honey","Oil"], c:2 },
+  { q:"Which is the largest mammal?", a:["Elephant","Whale","Hippo","Rhino"], c:1 },
+  { q:"Which sport uses a racket?", a:["Football","Tennis","Basketball","Cricket"], c:1 },
+
+  { q:"Which subject studies living things?", a:["Physics","Chemistry","Biology","Geography"], c:2 },
+  { q:"Which language is used to style websites?", a:["HTML","Python","CSS","Java"], c:2 },
+  { q:"How many letters are in the English alphabet?", a:["24","25","26","27"], c:2 },
+  { q:"Which shape has 3 sides?", a:["Square","Triangle","Rectangle","Circle"], c:1 },
+  { q:"Which planet is the largest?", a:["Earth","Mars","Jupiter","Saturn"], c:2 }
+];
+
+let index = 0;
+let score = 0;
+</script>
+
+<script>
+  function loadQuestion() {
+    document.getElementById("question").innerText = quiz[index].q;
+    const answersDiv = document.getElementById("answers");
+    answersDiv.innerHTML = "";
+
+    quiz[index].a.forEach((answer, i) => {
+      const btn = document.createElement("button");
+      btn.innerText = answer;
+      btn.onclick = () => checkAnswer(i);
+      answersDiv.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(i) {
+    if (i === quiz[index].c) score++;
+    index++;
+
+    if (index < quiz.length) {
+      loadQuestion();
+    } else {
+      document.querySelector(".quiz-box").innerHTML =
+        `<h2>🎉 Quiz Finished!</h2>
+         <p>Your score: <b>${score} / ${quiz.length}</b></p>`;
+    }
+  }
+
+  loadQuestion();
+</script>
+
+</body>
+</html>

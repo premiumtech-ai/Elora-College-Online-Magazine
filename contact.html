@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admissions Portal</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #020617;
+  color: white;
+}
+
+header {
+  padding: 20px 40px;
+  border-bottom: 1px solid #111827;
+  background: #020617;
+}
+
+h1 {
+  color: #22c55e;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+}
+
+.section-title {
+  margin-top: 30px;
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background: #020617;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  color: white;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 8px rgba(34,197,94,0.5);
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  background: #22c55e;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16a34a;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Admissions Portal</h1>
+</header>
+
+<div class="container">
+
+<form action="https://formspree.io/f/xeelplqw" method="POST" enctype="multipart/form-data">
+
+<div class="section-title">Child Information</div>
+
+<input type="text" name="child_name" placeholder="Name of Child" required>
+<input type="number" name="age" placeholder="Age" required>
+
+<select name="class">
+<option>Class to be Registered</option>
+<option>Grade 7-Jss1</option>
+<option>Grade 8-Jss2</option>
+<option>Grade 9-Jss3</option>
+<option>Grade 10-SS1</option>
+<option>Grade 11-SS2</option>
+<option></option>
+</select>
+
+<div class="section-title">Parent Contact</div>
+
+<input type="email" name="parent_email" placeholder="Parent Email">
+<input type="text" name="phone" placeholder="Phone Number">
+
+<div class="section-title">Upload Document</div>
+
+<input type="file" name="document">
+
+<div class="section-title">Additional Notes</div>
+
+<textarea name="notes" rows="4" placeholder="Any information"></textarea>
+
+<button type="submit">Submit Application</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
